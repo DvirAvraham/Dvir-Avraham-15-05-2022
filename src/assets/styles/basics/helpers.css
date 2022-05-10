@@ -1,0 +1,58 @@
+.main-layout {
+  margin: 0 90px;
+  max-width: 1800px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 180px;
+}
+
+.clean-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.clean-list > li {
+    margin: 0;
+    padding: 0;
+  }
+
+.flex {
+  display: flex;
+}
+  .flex.column{
+    flex-direction: column;
+  }
+  .flex.justify-center {
+    justify-content: center;
+  }
+  .flex.align-center {
+    align-items: center;
+  }
+  .flex.wrap {
+    flex-wrap: wrap;
+  }
+  .flex.space-between {
+    justify-content: space-between;
+  }
+  .flex.space-around {
+    justify-content: space-around;
+  }
+  .flex.auto-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}

@@ -1,0 +1,19 @@
+.search-list{
+    position: absolute;
+    z-index: 5;
+}
+
+.search-list .city-name{
+    width: 18rem;
+    border: 1.6px solid #0f0144;
+    border-radius: 4px;
+    font-size: 1.16rem;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 3px;
+
+}
+
+.search-list .city-name:hover{
+    background-color: #f1f1f1;
+}

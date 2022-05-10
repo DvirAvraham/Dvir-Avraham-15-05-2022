@@ -1,0 +1,14 @@
+.favorite-preview{
+    height: 200px;
+}
+
+.favorite-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 180px;
+}
+
+.favorites-title{
+    margin-bottom: 50px;
+    font-size:1.6rem
+}

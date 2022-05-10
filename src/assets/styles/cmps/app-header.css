@@ -1,0 +1,32 @@
+.app-header {
+  background-color: #10358e;
+  color: whitesmoke;
+  font-weight: 600;
+  margin-bottom: 60px;
+  height: 60px;
+}
+
+nav > *:not(:last-child) {
+  margin-inline-end: 20px;
+}
+
+.header-container {
+  height: inherit;
+}
+
+.try{
+  font-family: inherit;
+  text-align: inherit;
+  height: 2.5rem;
+  width: 18rem;
+  border-radius: 4px;
+  font-size: 1.16rem;
+  border: 1.6px solid #0f0144;
+  background-color: #f1f1f1;
+  position: absolute;
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  top: 120px;
+  padding-left: 1px;
+}
