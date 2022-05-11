@@ -8,20 +8,17 @@ import {setCurrCity, setFavorites} from '../store/actions/WeatherActions';
 
 export const WeatherPage = () => {
   const dispatch = useDispatch();
-  const [currCityWeather, setcurrCityWeather] = useState(null);
   const [currCityForcast, setcurrCityForcast] = useState(null);
 
   const {currCity} = useSelector((state) => state.WeatherModule);
 
   useEffect(() => {
-    setWeather();
+    setForecast();
   }, [currCity]);
 
-  const setWeather = async () => {
+  const setForecast = async () => {
     try {
       if (!currCity) return;
-      const weather = await WeatherService.getWeather(currCity.key);
-      setcurrCityWeather(weather);
       const forcast = await WeatherService.getForcast(currCity.key);
       setcurrCityForcast(forcast);
     } catch (err) {

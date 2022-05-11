@@ -381,7 +381,7 @@ async function getWeather(city) {
   if (cityWeather && !city) return cityWeather;
   cityWeather = CURR_WEATHER;
 
-  let details = city || TLV[0];
+  const details = city || TLV[0];
   cityWeather.LocalizedName = details.LocalizedName;
   cityWeather.Key = details.Key;
   cityWeather.isFavorite = details.isFavorite || false;
