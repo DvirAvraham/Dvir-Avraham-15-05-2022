@@ -1,16 +1,21 @@
 import {withRouter} from 'react-router-dom';
 import Moment from 'react-moment';
 import img from '../assets/imgs/skys.jpg';
+import {useDispatch} from 'react-redux';
+import {setCurrCity} from '../store/actions/WeatherActions';
 
-function _FavoritePreview({favorite, remove, history, setCities}) {
+function _FavoritePreview({favorite, remove, history, setCity}) {
+  const dispatch = useDispatch();
+
   const removeCity = (ev) => {
     ev.stopPropagation();
+    favorite.isFavorite = false;
     remove(favorite);
   };
 
   const back = () => {
-    // setCities(favorite.Key);
-    console.log('first');
+    // dispatch(setCurrCity(favorite));
+    setCity(favorite);
     history.push('/');
   };
 
@@ -20,6 +25,7 @@ function _FavoritePreview({favorite, remove, history, setCities}) {
       className="favorite-preview text-center"
       onClick={() => back()}
     >
+      <div>{favorite.LocalizedName}</div>
       <Moment format="YYYY/MM/DD">{favorite.LocalObservationDateTime}</Moment>
       <div>
         {favorite?.Temperature.Metric.Value}

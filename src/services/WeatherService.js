@@ -8,7 +8,6 @@ export const WeatherService = {
 
 const TLV = [
   {
-    _id: 'yessssss',
     Version: 1,
     Key: '215854',
     Type: 'City',
@@ -24,32 +23,30 @@ const TLV = [
     },
   },
 ];
-// const CURR_WEATHER = [
-//   {
-//     LocalObservationDateTime: '2022-05-09T16:13:00+03:00',
-//     EpochTime: 1652101980,
-//     WeatherText: 'Sunny',
-//     WeatherIcon: 1,
-//     HasPrecipitation: false,
-//     PrecipitationType: null,
-//     IsDayTime: true,
-//     Temperature: {
-//       Metric: {
-//         Value: 28.2,
-//         Unit: 'C',
-//         UnitType: 17,
-//       },
-//       Imperial: {
-//         Value: 83,
-//         Unit: 'F',
-//         UnitType: 18,
-//       },
-//     },
-//     MobileLink:
-//       'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-//     Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-//   },
-// ];
+const CURR_WEATHER = {
+  LocalObservationDateTime: '2022-05-09T16:13:00+03:00',
+  EpochTime: 1652101980,
+  WeatherText: 'Sunny',
+  WeatherIcon: 1,
+  HasPrecipitation: false,
+  PrecipitationType: null,
+  IsDayTime: true,
+  Temperature: {
+    Metric: {
+      Value: 28.2,
+      Unit: 'C',
+      UnitType: 17,
+    },
+    Imperial: {
+      Value: 83,
+      Unit: 'F',
+      UnitType: 18,
+    },
+  },
+  MobileLink:
+    'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
+  Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
+};
 
 const AUTO = [
   {
@@ -375,24 +372,33 @@ const FIVE = [
 
 const CITY_KEY = 'city_db';
 
-// const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
+const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
 // const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
-const API_KEY = 'D6jKdaMbziIW51Ahx96LesYfkvyLCM8k';
+// const API_KEY = 'D6jKdaMbziIW51Ahx96LesYfkvyLCM8k';
 
-async function getWeather(cityKey = 215854) {
+async function getWeather(city) {
   let cityWeather = StorageService.loadFromStorage(CITY_KEY);
-  if (cityWeather?.Key) return cityWeather;
-  StorageService.saveToStorage(CITY_KEY, TLV);
-  return TLV;
+  if (cityWeather && !city) return cityWeather;
+  cityWeather = CURR_WEATHER;
+
+  let details = city || TLV[0];
+  cityWeather.LocalizedName = details.LocalizedName;
+  cityWeather.Key = details.Key;
+  cityWeather.isFavorite = details.isFavorite || false;
+  StorageService.saveToStorage(CITY_KEY, cityWeather);
+  return cityWeather;
   try {
     const res = await axios.get(
-      `http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${API_KEY}`
+      `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
     );
     cityWeather = res.data;
+    cityWeather.LocalizedName = city.LocalizedName;
+    cityWeather.Key = city.Key;
+    cityWeather.isFavorite = city.isFavorite || false;
     StorageService.saveToStorage(CITY_KEY, cityWeather);
     return cityWeather;
   } catch (err) {
-    console.error(`Failed getting ${cityKey} weather`, err);
+    console.error(`Failed getting ${city.Key} weather`, err);
   }
 }
 
@@ -408,13 +414,14 @@ async function getCities(value) {
   }
 }
 
-async function getForcast(cityKey) {
+async function getForcast(cityKey = 215854) {
   return FIVE[0].DailyForecasts;
   try {
     const res = await axios.get(
       `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
     );
-    return res.data[0].DailyForecasts;
+    console.log('res.data[0].DailyForecasts', res.data.DailyForecasts);
+    return res.data.DailyForecasts;
   } catch (err) {
     console.error('Failed getting forcast', err);
   }

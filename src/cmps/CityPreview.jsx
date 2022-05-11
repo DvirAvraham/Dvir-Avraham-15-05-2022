@@ -1,17 +1,20 @@
-export const CityPreview = ({weather, forcast, city, toggleFavorite}) => {
+export const CityPreview = ({city, toggleFavorite}) => {
   const btnTxt = () => {
-    return city[0]?.isFavorite ? 'Remove' : 'Add';
+    return city?.isFavorite ? 'Remove' : 'Add';
   };
-
   return (
     <div className="city-preview flex space-between">
       <div>
+        {city.LocalizedName} F {city.Temperature.Imperial.Value} -
+        {city.Temperature.Imperial.Value}
+      </div>
+      {/* <div>
         {weather.LocalizedName} F {forcast.Temperature.Minimum.Value} -
         {forcast.Temperature.Maximum.Value}
         -- {weather.Key}
-      </div>
+      </div> */}
       <div>
-        {city[0]?.isFavorite && 'FAVORITE'}
+        {city?.isFavorite && 'FAVORITE'}
         <button onClick={toggleFavorite}>{btnTxt()}</button>
       </div>
     </div>

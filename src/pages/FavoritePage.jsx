@@ -1,6 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {useEffect} from 'react';
-import {loadFavorites, setFavorites} from '../store/actions/WeatherActions';
+import {setFavorites, setCurrCity} from '../store/actions/WeatherActions';
 import {FavoriteList} from '../cmps/FavoriteList.jsx';
 
 export const FavoritePage = () => {
@@ -8,19 +7,20 @@ export const FavoritePage = () => {
 
   const {favorites} = useSelector((state) => state.WeatherModule);
 
-  useEffect(() => {
-    dispatch(loadFavorites());
-  }, []);
-
   const removeCity = (city) => {
-    const isSure = prompt(`Are you sure you want to remove ${city._id} `);
+    const isSure = prompt(`Are you sure you want to remove ${city.Key} `);
     if (isSure) dispatch(setFavorites(city));
+  };
+
+  const setCity = (city) => {
+    dispatch(setCurrCity(city));
   };
 
   return (
     <div className="favorite-page main-layout">
       {favorites && (
         <FavoriteList
+          setCity={setCity}
           favorites={favorites}
           removeCity={removeCity}
         ></FavoriteList>

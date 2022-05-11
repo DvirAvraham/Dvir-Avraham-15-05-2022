@@ -6,7 +6,7 @@ export const SearchList = ({cities, clearData}) => {
 
   const setCity = (city) => {
     clearData();
-    dispatch(setCurrCity(city.Key));
+    dispatch(setCurrCity(city));
   };
 
   return (

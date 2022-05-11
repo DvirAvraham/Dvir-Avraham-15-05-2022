@@ -14,7 +14,6 @@ export const WeatherPage = () => {
   const {currCity} = useSelector((state) => state.WeatherModule);
 
   useEffect(() => {
-    dispatch(setCurrCity());
     setWeather();
   }, [currCity]);
 
@@ -31,11 +30,11 @@ export const WeatherPage = () => {
   };
 
   const toggleFavorite = () => {
-    !currCity[0].isFavorite
-      ? (currCity[0].isFavorite = true)
-      : (currCity[0].isFavorite = !currCity[0].isFavorite);
-    dispatch(setCurrCity(currCity[0]));
-    dispatch(setFavorites(currCity[0]));
+    !currCity.isFavorite
+      ? (currCity.isFavorite = true)
+      : (currCity.isFavorite = !currCity.isFavorite);
+    dispatch(setCurrCity(currCity));
+    dispatch(setFavorites(currCity));
   };
 
   return !currCity ? (
@@ -43,11 +42,9 @@ export const WeatherPage = () => {
   ) : (
     <section className="weather-page main-layout">
       <SearchCity />
-      {currCityWeather && currCityForcast ? (
+      {currCity ? (
         <CityPreview
           city={currCity}
-          weather={currCityWeather[0]}
-          forcast={currCityForcast[0]}
           toggleFavorite={toggleFavorite}
         ></CityPreview>
       ) : (
