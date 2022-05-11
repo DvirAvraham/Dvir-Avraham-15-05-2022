@@ -3,7 +3,7 @@ import {FavoritePreview} from './FavoritePreview.jsx';
 export const FavoriteList = ({favorites, removeCity, setCity, isImperial}) => {
   return (
     <div>
-      <div className="favorites-title">Your Favorites Cities!</div>
+      <div className="favorites-title">Your Favorite Cities!</div>
       <section className="favorite-list">
         {favorites.map((favorite, i) => (
           <FavoritePreview
