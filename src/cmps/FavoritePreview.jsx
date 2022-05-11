@@ -1,12 +1,8 @@
 import {withRouter} from 'react-router-dom';
 import Moment from 'react-moment';
 import img from '../assets/imgs/skys.jpg';
-import {useDispatch} from 'react-redux';
-import {setCurrCity} from '../store/actions/WeatherActions';
 
 function _FavoritePreview({favorite, remove, history, setCity}) {
-  const dispatch = useDispatch();
-
   const removeCity = (ev) => {
     ev.stopPropagation();
     favorite.isFavorite = false;
@@ -14,7 +10,6 @@ function _FavoritePreview({favorite, remove, history, setCity}) {
   };
 
   const back = () => {
-    // dispatch(setCurrCity(favorite));
     setCity(favorite);
     history.push('/');
   };

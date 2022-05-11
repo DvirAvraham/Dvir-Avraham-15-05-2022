@@ -17,11 +17,6 @@ export function WeatherReducer(state = INITIAL_STATE, action) {
         ...state,
         favorites: action.favorites,
       };
-    case 'REMOVE_FAVORITE':
-      return {
-        ...state,
-        favorites: action.favorites,
-      };
 
     default:
       return state;

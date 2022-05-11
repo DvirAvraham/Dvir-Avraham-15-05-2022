@@ -173,7 +173,8 @@ function removeCity(favorites, cityKey) {
 }
 
 function addCity(favorites, city) {
-  favorites.unshift(city);
+  const cityCopy = JSON.parse(JSON.stringify(city));
+  favorites.unshift(cityCopy);
   StorageService.saveToStorage(FAVORITE_KEY, favorites);
   return favorites;
 }

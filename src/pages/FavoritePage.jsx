@@ -6,10 +6,14 @@ export const FavoritePage = () => {
   const dispatch = useDispatch();
 
   const {favorites} = useSelector((state) => state.WeatherModule);
+  const {currCity} = useSelector((state) => state.WeatherModule);
 
   const removeCity = (city) => {
     const isSure = prompt(`Are you sure you want to remove ${city.Key} `);
-    if (isSure) dispatch(setFavorites(city));
+    if (isSure) {
+      if (city.Key === currCity.Key) dispatch(setCurrCity(currCity));
+      dispatch(setFavorites(city));
+    }
   };
 
   const setCity = (city) => {

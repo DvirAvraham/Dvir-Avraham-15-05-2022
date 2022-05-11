@@ -377,14 +377,17 @@ const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
 // const API_KEY = 'D6jKdaMbziIW51Ahx96LesYfkvyLCM8k';
 
 async function getWeather(city) {
+  console.log(city, 'city');
   let cityWeather = StorageService.loadFromStorage(CITY_KEY);
-  if (cityWeather && !city) return cityWeather;
+  // if (cityWeather && !city) return cityWeather;
   cityWeather = CURR_WEATHER;
 
   const details = city || TLV[0];
   cityWeather.LocalizedName = details.LocalizedName;
   cityWeather.Key = details.Key;
   cityWeather.isFavorite = details.isFavorite || false;
+  console.log(details, 999999);
+  console.log(cityWeather, 888888);
   StorageService.saveToStorage(CITY_KEY, cityWeather);
   return cityWeather;
   try {

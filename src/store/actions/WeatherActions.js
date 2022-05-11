@@ -4,10 +4,12 @@ import {FavoriteService} from '../../services/FavoriteService';
 export function setCurrCity(city) {
   return async (dispatch) => {
     try {
-      let currCity = await WeatherService.getWeather(city);
+      const currCity = await WeatherService.getWeather(city);
       dispatch({type: 'SET_CITY', currCity});
     } catch (err) {
       console.error('Faild setting city:', err);
+    } finally {
+      console.log('>>', city);
     }
   };
 }
@@ -26,13 +28,13 @@ export function setFavorites(city) {
   return async (dispatch, getState) => {
     try {
       let {favorites} = getState().WeatherModule;
-      console.log(56, favorites);
+      const {currCity} = getState().WeatherModule;
       if (city.isFavorite) {
         favorites = FavoriteService.addCity(favorites, city);
       } else {
         favorites = FavoriteService.removeCity(favorites, city.Key);
       }
-      dispatch({type: 'REMOVE_FAVORITE', favorites});
+      dispatch({type: 'SET_FAVORITES', favorites});
     } catch (err) {
       console.error('Faild loading favorites:', err);
     }
