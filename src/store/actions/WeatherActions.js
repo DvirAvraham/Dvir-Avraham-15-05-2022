@@ -8,8 +8,6 @@ export function setCurrCity(city) {
       dispatch({type: 'SET_CITY', currCity});
     } catch (err) {
       console.error('Faild setting city:', err);
-    } finally {
-      console.log('>>', city);
     }
   };
 }
@@ -37,6 +35,18 @@ export function setFavorites(city) {
       dispatch({type: 'SET_FAVORITES', favorites});
     } catch (err) {
       console.error('Faild loading favorites:', err);
+    }
+  };
+}
+
+export function toggleImperial() {
+  return async (dispatch, getState) => {
+    try {
+      const {isImperial} = getState().WeatherModule;
+      // const isImperialUpdate = WeatherService.setUnits(isImperial);
+      dispatch({type: 'SET_IS_IMPERIAL', isImperial: !isImperial});
+    } catch (err) {
+      console.error('Faild switching units:', err);
     }
   };
 }

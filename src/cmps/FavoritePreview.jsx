@@ -2,7 +2,7 @@ import {withRouter} from 'react-router-dom';
 import Moment from 'react-moment';
 import img from '../assets/imgs/skys.jpg';
 
-function _FavoritePreview({favorite, remove, history, setCity}) {
+function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
   const removeCity = (ev) => {
     ev.stopPropagation();
     favorite.isFavorite = false;
@@ -14,6 +14,11 @@ function _FavoritePreview({favorite, remove, history, setCity}) {
     history.push('/');
   };
 
+  const degrees = () => {
+    const degree = isImperial ? 'Imperial' : 'Metric';
+    return `${favorite.Temperature[degree].Value} ${favorite.Temperature[degree].Unit}`;
+  };
+
   return (
     <div
       style={{backgroundImage: `url(${img})`}}
@@ -22,10 +27,7 @@ function _FavoritePreview({favorite, remove, history, setCity}) {
     >
       <div>{favorite.LocalizedName}</div>
       <Moment format="YYYY/MM/DD">{favorite.LocalObservationDateTime}</Moment>
-      <div>
-        {favorite?.Temperature.Metric.Value}
-        {favorite?.Temperature.Metric.Unit}
-      </div>
+      <div>{degrees()}</div>
       <button onClick={(ev) => removeCity(ev)}>Remove</button>
     </div>
   );

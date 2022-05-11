@@ -7,6 +7,7 @@ export const FavoritePage = () => {
 
   const {favorites} = useSelector((state) => state.WeatherModule);
   const {currCity} = useSelector((state) => state.WeatherModule);
+  const {isImperial} = useSelector((state) => state.WeatherModule);
 
   const removeCity = (city) => {
     const isSure = prompt(`Are you sure you want to remove ${city.Key} `);
@@ -24,6 +25,7 @@ export const FavoritePage = () => {
     <div className="favorite-page main-layout">
       {favorites && (
         <FavoriteList
+          isImperial={isImperial}
           setCity={setCity}
           favorites={favorites}
           removeCity={removeCity}

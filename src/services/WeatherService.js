@@ -4,6 +4,7 @@ export const WeatherService = {
   getWeather,
   getCities,
   getForcast,
+  // setUnits,
 };
 
 const TLV = [
@@ -371,6 +372,7 @@ const FIVE = [
 ];
 
 const CITY_KEY = 'city_db';
+const UNIT_KEY = 'unit_db';
 
 const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
 // const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
@@ -420,9 +422,16 @@ async function getForcast(cityKey = 215854) {
     const res = await axios.get(
       `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
     );
-    console.log('res.data[0].DailyForecasts', res.data.DailyForecasts);
     return res.data.DailyForecasts;
   } catch (err) {
     console.error('Failed getting forcast', err);
   }
 }
+
+// function setUnits(isImperial) {
+//   const unit =
+//     isImperial == null ? true : StorageService.loadFromStorage(UNIT_KEY);
+//   console.log(unit);
+//   StorageService.saveToStorage(UNIT_KEY, unit);
+//   return unit;
+// }

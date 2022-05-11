@@ -3,6 +3,7 @@ import {WeatherService} from '../../services/WeatherService';
 const INITIAL_STATE = {
   currCity: null,
   favorites: null,
+  isImperial: null,
 };
 
 export function WeatherReducer(state = INITIAL_STATE, action) {
@@ -16,6 +17,11 @@ export function WeatherReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         favorites: action.favorites,
+      };
+    case 'SET_IS_IMPERIAL':
+      return {
+        ...state,
+        isImperial: action.isImperial,
       };
 
     default:

@@ -11,6 +11,7 @@ export const WeatherPage = () => {
   const [currCityForcast, setcurrCityForcast] = useState(null);
 
   const {currCity} = useSelector((state) => state.WeatherModule);
+  const {isImperial} = useSelector((state) => state.WeatherModule);
 
   useEffect(() => {
     setForecast();
@@ -42,13 +43,17 @@ export const WeatherPage = () => {
       {currCity ? (
         <CityPreview
           city={currCity}
+          isImperial={isImperial}
           toggleFavorite={toggleFavorite}
         ></CityPreview>
       ) : (
         <div>Loading..</div>
       )}
       {currCityForcast ? (
-        <ForcastList forcasts={currCityForcast}></ForcastList>
+        <ForcastList
+          forcasts={currCityForcast}
+          isImperial={isImperial}
+        ></ForcastList>
       ) : (
         <div>Loading..</div>
       )}
