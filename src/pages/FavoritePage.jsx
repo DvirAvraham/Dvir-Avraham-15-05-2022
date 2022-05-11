@@ -11,7 +11,7 @@ export const FavoritePage = () => {
   const removeCity = (city) => {
     const isSure = prompt(`Are you sure you want to remove ${city.Key} `);
     if (isSure) {
-      if (city.Key === currCity.Key) dispatch(setCurrCity(currCity));
+      if (city.Key === currCity.Key) dispatch(setCurrCity(city));
       dispatch(setFavorites(city));
     }
   };
