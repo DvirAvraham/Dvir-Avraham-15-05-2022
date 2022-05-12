@@ -4,10 +4,7 @@
   height: 120px;
 }
 
-.logo{
-  /* color: #112B3C; */
-  font-size: 5rem;
-}
+
 
 nav > *:not(:last-child) {
   margin-inline-end: 20px;

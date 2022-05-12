@@ -1,13 +1,5 @@
-.main-layout {
-  margin: 0 90px;
-  max-width: 1800px;
-}
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  grid-gap: 180px;
-}
+
 
 .clean-list {
   margin: 0;

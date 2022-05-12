@@ -1,8 +1,4 @@
-.forcast-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    grid-gap: 100px;
-}
+
 
 .forcast-list>*{
     height: 425px;

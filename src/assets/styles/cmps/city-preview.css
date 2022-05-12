@@ -9,6 +9,19 @@
     text-transform: uppercase;
 }
 
+.toggle-fav{
+    position: absolute;
+    border:0;
+    background:  0;
+    font-size: 1.3rem;
+    color: #03030454;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-fav.fav{
+    color: red;
+}
+
 .city-degrees{
     font-size: 2rem;
     font-weight: 600;
