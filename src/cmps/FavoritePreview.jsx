@@ -1,6 +1,9 @@
 import {withRouter} from 'react-router-dom';
 import Moment from 'react-moment';
 import img from '../assets/imgs/skys.jpg';
+import sun from '../assets/imgs/sun.svg';
+import cloudy from '../assets/imgs/cloudy.svg';
+import snow from '../assets/imgs/snow.svg';
 
 function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
   const removeCity = (ev) => {
@@ -16,7 +19,16 @@ function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
 
   const degrees = () => {
     const degree = isImperial ? 'Imperial' : 'Metric';
-    return `${favorite.Temperature[degree].Value} ${favorite.Temperature[degree].Unit}`;
+    return `${favorite.Temperature[degree].Value.toFixed()} ${
+      favorite.Temperature[degree].Unit
+    }`;
+  };
+
+  const tempImg = () => {
+    const temp = favorite.Temperature.Imperial.Value;
+    if (temp <= 50) return snow;
+    else if (temp > 50 && temp < 77) return cloudy;
+    else return sun;
   };
 
   return (
@@ -29,6 +41,7 @@ function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
       <Moment format="YYYY/MM/DD">{favorite.LocalObservationDateTime}</Moment>
       <div>{degrees()}</div>
       <button onClick={(ev) => removeCity(ev)}>Remove</button>
+      <img src={tempImg()} alt="" />
     </div>
   );
 }
