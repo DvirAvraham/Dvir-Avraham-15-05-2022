@@ -36,8 +36,8 @@ export const WeatherPage = () => {
     dispatch(setCurrCity(currCity));
     dispatch(setFavorites(currCity));
     const txt = currCity.isFavorite
-      ? `${currCity.LocalizedName}  added successfuly to your favorite cities !`
-      : `${currCity.LocalizedName} removed successfuly from your favorite cities!`;
+      ? `${currCity.LocalizedName}  added successfully to your favorite cities !`
+      : `${currCity.LocalizedName} removed successfully from your favorite cities!`;
     toast.success(txt, {
       position: 'top-right',
       autoClose: 3000,
