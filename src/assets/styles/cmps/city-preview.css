@@ -1,3 +1,15 @@
 .city-preview{
-    margin:50px 0 200px;
+    margin:20px 0;
+}
+
+.city-name{
+    font-size: 3rem;
+    font-family: revert;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.city-degrees{
+    font-size: 2rem;
+    font-weight: 600;
 }

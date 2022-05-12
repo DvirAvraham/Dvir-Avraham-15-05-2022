@@ -1,9 +1,13 @@
 .app-header {
-  background-color: #10358e;
   color: whitesmoke;
   font-weight: 600;
-  margin-bottom: 60px;
-  height: 60px;
+  font-family: vogue;
+  height: 120px;
+}
+
+.logo{
+  color: #112B3C;
+  font-size: 5rem;
 }
 
 nav > *:not(:last-child) {

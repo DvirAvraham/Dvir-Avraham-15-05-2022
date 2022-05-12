@@ -46,7 +46,7 @@ export const SearchCity = () => {
   };
 
   return (
-    <section>
+    <section className="flex justify-center">
       <input onChange={search} type="text" placeholder="  Serach" value={txt} />
       {cities && <div className="try">{complete()}</div>}
       <section>

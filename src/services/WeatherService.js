@@ -389,16 +389,18 @@ async function getWeather(city) {
   cityWeather.isFavorite = details.isFavorite || false;
   StorageService.saveToStorage(CITY_KEY, cityWeather);
   return cityWeather;
+  // if (!cityWeather && !city) city = await getGeoLocation();
+  // console.log('cityyyy', city);
   try {
-    const res = await axios.get(
-      `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
-    );
-    cityWeather = res.data;
-    cityWeather.LocalizedName = city.LocalizedName;
-    cityWeather.Key = city.Key;
-    cityWeather.isFavorite = city.isFavorite || false;
-    StorageService.saveToStorage(CITY_KEY, cityWeather);
-    return cityWeather;
+    // const res = await axios.get(
+    //   `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
+    // );
+    // cityWeather = res.data[0];
+    // cityWeather.LocalizedName = city.LocalizedName;
+    // cityWeather.Key = city.Key;
+    // cityWeather.isFavorite = city.isFavorite || false;
+    // StorageService.saveToStorage(CITY_KEY, cityWeather);
+    // return cityWeather;
   } catch (err) {
     console.error(`Failed getting ${city.Key} weather`, err);
   }
@@ -416,8 +418,9 @@ async function getCities(value) {
   }
 }
 
-async function getForcast(cityKey = 215854) {
+async function getForcast(cityKey) {
   return FIVE[0].DailyForecasts;
+  // if (!cityKey) return FIVE[0].DailyForecasts;
   try {
     const res = await axios.get(
       `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
@@ -431,7 +434,89 @@ async function getForcast(cityKey = 215854) {
 // function setUnits(isImperial) {
 //   const unit =
 //     isImperial == null ? true : StorageService.loadFromStorage(UNIT_KEY);
-//   console.log(unit);
 //   StorageService.saveToStorage(UNIT_KEY, unit);
 //   return unit;
 // }
+
+const LOC = {
+  Version: 1,
+  Key: '215846',
+  Type: 'City',
+  Rank: 55,
+  LocalizedName: 'Or Yehuda',
+  EnglishName: 'Or Yehuda',
+  PrimaryPostalCode: '',
+  Region: {
+    ID: 'MEA',
+    LocalizedName: 'Middle East',
+    EnglishName: 'Middle East',
+  },
+  Country: {
+    ID: 'IL',
+    LocalizedName: 'Israel',
+    EnglishName: 'Israel',
+  },
+  AdministrativeArea: {
+    ID: 'TA',
+    LocalizedName: 'Tel Aviv',
+    EnglishName: 'Tel Aviv',
+    Level: 1,
+    LocalizedType: 'District',
+    EnglishType: 'District',
+    CountryID: 'IL',
+  },
+  TimeZone: {
+    Code: 'IDT',
+    Name: 'Asia/Jerusalem',
+    GmtOffset: 3,
+    IsDaylightSaving: true,
+    NextOffsetChange: '2022-10-29T23:00:00Z',
+  },
+  GeoPosition: {
+    Latitude: 32.027,
+    Longitude: 34.846,
+    Elevation: {
+      Metric: {
+        Value: 25,
+        Unit: 'm',
+        UnitType: 5,
+      },
+      Imperial: {
+        Value: 82,
+        Unit: 'ft',
+        UnitType: 0,
+      },
+    },
+  },
+  IsAlias: false,
+  SupplementalAdminAreas: [],
+  DataSets: [
+    'AirQualityCurrentConditions',
+    'AirQualityForecasts',
+    'Alerts',
+    'DailyPollenForecast',
+    'ForecastConfidence',
+    'FutureRadar',
+    'MinuteCast',
+  ],
+};
+async function getGeoLocation() {
+  // return LOC;
+  try {
+    const x = await navigator.geolocation.getCurrentPosition(async function (
+      position
+    ) {
+      try {
+        // const res = await axios.get(
+        //   `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${position.coords.latitude}%2C${position.coords.longitude}`
+        // );
+        // console.log('res.data', res.data);
+        // return res.data;
+      } catch (err) {
+        console.log('err', err);
+      }
+    });
+  } catch (err) {
+    console.error('Failed getting your location', err);
+  }
+}

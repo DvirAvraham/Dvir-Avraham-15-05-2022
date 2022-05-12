@@ -1,9 +1,22 @@
 .forcast-list{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     grid-gap: 100px;
 }
 
 .forcast-list>*{
-    height: 200px;
+    height: 425px;
+}
+
+.forcast-img{
+    background-repeat: round;
+}
+
+.date{
+    margin: 42px 0;
+    font-size: 1.8rem;
+}
+
+.degrees{
+    font-size:1.4rem;
 }

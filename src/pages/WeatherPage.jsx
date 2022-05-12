@@ -20,10 +20,10 @@ export const WeatherPage = () => {
   const setForecast = async () => {
     try {
       if (!currCity) return;
-      const forcast = await WeatherService.getForcast(currCity.key);
+      const forcast = await WeatherService.getForcast(currCity.Key);
       setcurrCityForcast(forcast);
     } catch (err) {
-      console.error('Setting weather failed', err);
+      console.error('Failed setting weather', err);
     }
   };
 
