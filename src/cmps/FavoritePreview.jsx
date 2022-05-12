@@ -19,7 +19,7 @@ function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
 
   const degrees = () => {
     const degree = isImperial ? 'Imperial' : 'Metric';
-    return `${favorite.Temperature[degree].Value.toFixed()} ${
+    return `${favorite.Temperature[degree].Value.toFixed()} °${
       favorite.Temperature[degree].Unit
     }`;
   };

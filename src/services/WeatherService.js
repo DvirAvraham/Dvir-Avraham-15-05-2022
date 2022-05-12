@@ -381,6 +381,7 @@ const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
 async function getWeather(city) {
   let cityWeather = StorageService.loadFromStorage(CITY_KEY);
   if (cityWeather && !city) return cityWeather;
+
   cityWeather = CURR_WEATHER;
 
   const details = city || TLV[0];
@@ -389,18 +390,17 @@ async function getWeather(city) {
   cityWeather.isFavorite = details.isFavorite || false;
   StorageService.saveToStorage(CITY_KEY, cityWeather);
   return cityWeather;
-  // if (!cityWeather && !city) city = await getGeoLocation();
-  // console.log('cityyyy', city);
   try {
-    // const res = await axios.get(
-    //   `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
-    // );
-    // cityWeather = res.data[0];
-    // cityWeather.LocalizedName = city.LocalizedName;
-    // cityWeather.Key = city.Key;
-    // cityWeather.isFavorite = city.isFavorite || false;
-    // StorageService.saveToStorage(CITY_KEY, cityWeather);
-    // return cityWeather;
+    if (!cityWeather && !city) city = await getGeoLocation();
+    const res = await axios.get(
+      `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
+    );
+    cityWeather = res.data[0];
+    cityWeather.LocalizedName = city.LocalizedName;
+    cityWeather.Key = city.Key;
+    cityWeather.isFavorite = city.isFavorite || false;
+    StorageService.saveToStorage(CITY_KEY, cityWeather);
+    return cityWeather;
   } catch (err) {
     console.error(`Failed getting ${city.Key} weather`, err);
   }
@@ -500,23 +500,23 @@ const LOC = {
     'MinuteCast',
   ],
 };
+
 async function getGeoLocation() {
-  // return LOC;
+  return LOC;
+  const position = await getPosition();
   try {
-    const x = await navigator.geolocation.getCurrentPosition(async function (
-      position
-    ) {
-      try {
-        // const res = await axios.get(
-        //   `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${position.coords.latitude}%2C${position.coords.longitude}`
-        // );
-        // console.log('res.data', res.data);
-        // return res.data;
-      } catch (err) {
-        console.log('err', err);
-      }
-    });
+    console.log(position);
+    const res = await axios.get(
+      `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${position.coords.latitude}%2C${position.coords.longitude}`
+    );
+    return res.data;
   } catch (err) {
     console.error('Failed getting your location', err);
   }
+}
+
+function getPosition() {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
 }

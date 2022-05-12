@@ -9,11 +9,11 @@ export const ForcastPreview = ({forcast, isImperial}) => {
     const forcastMin = forcast.Temperature.Minimum.Value;
     const forcastMax = forcast.Temperature.Maximum.Value;
     const degrees = isImperial
-      ? [forcastMin, forcastMax, 'F']
+      ? [forcastMin, forcastMax, '°F']
       : [
           (((forcastMin - 32) * 5) / 9).toFixed(),
           (((forcastMax - 32) * 5) / 9).toFixed(),
-          'C',
+          '°C',
         ];
     return `${degrees[0]} - ${degrees[1]} ${degrees[2]}`;
   };

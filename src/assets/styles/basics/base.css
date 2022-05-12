@@ -16,6 +16,10 @@ font-family: revert;
 }
 
 
+.app{
+  transition: background-color 0.5s;
+  height: 100vh;
+}
 
 img {
   max-width: 180px;
@@ -40,6 +44,9 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+a.my-active {
+ color: #a70e45;;
 }
 
 button {

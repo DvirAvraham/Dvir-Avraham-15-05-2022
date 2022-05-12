@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   currCity: null,
   favorites: null,
   isImperial: null,
+  isDark: null,
 };
 
 export function WeatherReducer(state = INITIAL_STATE, action) {
@@ -22,6 +23,11 @@ export function WeatherReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         isImperial: action.isImperial,
+      };
+    case 'SET_IS_DARK':
+      return {
+        ...state,
+        isDark: action.isDark,
       };
 
     default:

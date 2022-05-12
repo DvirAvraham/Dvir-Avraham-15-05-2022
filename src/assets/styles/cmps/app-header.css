@@ -1,12 +1,11 @@
 .app-header {
-  color: whitesmoke;
   font-weight: 600;
   font-family: vogue;
   height: 120px;
 }
 
 .logo{
-  color: #112B3C;
+  /* color: #112B3C; */
   font-size: 5rem;
 }
 

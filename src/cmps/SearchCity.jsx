@@ -46,14 +46,21 @@ export const SearchCity = () => {
   };
 
   return (
-    <section className="flex justify-center">
-      <input onChange={search} type="text" placeholder="  Serach" value={txt} />
-      {cities && <div className="try">{complete()}</div>}
-      <section>
+    <section className="flex column align-center">
+      <div>
+        <input
+          onChange={search}
+          type="text"
+          placeholder="  Serach"
+          value={txt}
+        />
+      </div>
+      {/* {cities && <div className="try">{complete()}</div>} */}
+      <div>
         {cities && (
           <SearchList cities={cities} clearData={clearData}></SearchList>
         )}
-      </section>
+      </div>
     </section>
   );
 };

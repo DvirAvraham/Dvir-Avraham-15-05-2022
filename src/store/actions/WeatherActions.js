@@ -4,7 +4,7 @@ import {FavoriteService} from '../../services/FavoriteService';
 export function setCurrCity(city) {
   return async (dispatch) => {
     try {
-      const currCity = await WeatherService.getWeather(city);
+      let currCity = await WeatherService.getWeather(city);
       dispatch({type: 'SET_CITY', currCity});
     } catch (err) {
       console.error('Faild setting city:', err);
@@ -47,6 +47,17 @@ export function toggleImperial() {
       dispatch({type: 'SET_IS_IMPERIAL', isImperial: !isImperial});
     } catch (err) {
       console.error('Faild switching units:', err);
+    }
+  };
+}
+export function toggleDarkMode() {
+  return async (dispatch, getState) => {
+    try {
+      const {isDark} = getState().WeatherModule;
+      // const isImperialUpdate = WeatherService.setUnits(isImperial);
+      dispatch({type: 'SET_IS_DARK', isDark: !isDark});
+    } catch (err) {
+      console.error('Faild switching modes:', err);
     }
   };
 }

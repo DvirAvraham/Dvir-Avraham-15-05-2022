@@ -5,7 +5,7 @@ export const CityPreview = ({city, toggleFavorite, isImperial}) => {
 
   const degrees = () => {
     const degree = isImperial ? 'Imperial' : 'Metric';
-    return `${city.Temperature[degree].Value.toFixed()} ${
+    return `${city.Temperature[degree].Value.toFixed()} °${
       city.Temperature[degree].Unit
     }`;
   };
