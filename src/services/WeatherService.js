@@ -502,7 +502,6 @@ async function getGeoLocation() {
   return LOC;
   const position = await getPosition();
   try {
-    console.log(position);
     const res = await axios.get(
       `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${position.coords.latitude}%2C${position.coords.longitude}`
     );
