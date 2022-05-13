@@ -48,17 +48,14 @@ export const SearchCity = () => {
   return (
     <section className="serach flex column align-center">
       <div>
-        <input
-          onChange={search}
-          type="text"
-          placeholder="  Serach"
-          value={txt}
-        />
+        <input onChange={search} type="text" placeholder="Serach" value={txt} />
       </div>
-      {/* {cities && <div className="try">{complete()}</div>} */}
-      {cities && (
-        <SearchList cities={cities} clearData={clearData}></SearchList>
-      )}
+      <div className="serach-container">
+        {/* {cities && <div className="try">{complete()}</div>} */}
+        {cities && (
+          <SearchList cities={cities} clearData={clearData}></SearchList>
+        )}
+      </div>
     </section>
   );
 };

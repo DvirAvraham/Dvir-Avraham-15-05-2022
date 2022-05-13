@@ -4,6 +4,8 @@
     }
     .logo {
         font-size: 4rem;
+        position:static;
+        z-index: 5;
     }
     .cards-grid{
         display: grid;
@@ -11,48 +13,67 @@
         grid-gap: 30px;
     }
     .search-list .city-name{
-        width: 90vw;
-        border: 1.6px solid #0f0144;
-        border-radius: 4px;
+        width: 12rem;
+        border: 0;
         font-size: 1.16rem;
         cursor: pointer;
         background-color: rgba(255, 255, 255, 0.681);
         padding: 3px;
-    
+        border-bottom: 1px solid #00000033;      
     }
+    
+    .serach-container{
+        position: relative;
+        width: 90vw;
+        
+    }
+    
     input {
         height: 3.8rem;
         width: 90vw;
-        border-radius: 4px;
-        font-size: 1.9rem;
-        border: 1.6px solid #0f0144;
+        border:0;
         background-color: #f1f1f1;
         position: static;
         z-index: 10;
-      }
+        font-size: 25px !important;
+    }
+    input:focus-visible{
+        outline: 0
+    }
+
 }
+
 
 @media (min-width: 800px) {
     .search-list .city-name{
-        width: 29rem;
-        border: 1.6px solid #0f0144;
-        border-radius: 4px;
+        width: 12rem;
+        border: 0;
         font-size: 1.16rem;
         cursor: pointer;
         background-color: rgba(255, 255, 255, 0.681);
         padding: 3px;
-    
+        border-bottom: 1px solid #00000033;
+    }
+
+    .serach-container{
+        position: relative;
+        width: 29rem;
     }
     input {
         height: 3.8rem;
         width: 29rem;
-        border-radius: 4px;
-        font-size: 1.9rem;
-        border: 1.6px solid #0f0144;
+        border: 0;
         background-color: #f1f1f1;
         position: static;
         z-index: 10;
-      }
+        font-size: 25px !important;
+        padding-left: 25px;
+    }
+
+    input:focus-visible{
+        outline: 0
+    }
+
     .logo {
         font-size: 5rem;
     }
@@ -91,3 +112,16 @@
     }
       
 }
+
+/* display: flex;
+flex-direction: column;
+position: fixed;
+right: 0;
+background-color: #000000ed;
+top: 0;
+height: 100vh;
+z-index: 10;
+width: 50vw;
+gap: 50px;
+align-items: center;
+padding-top: 67px; */

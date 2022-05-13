@@ -22,8 +22,9 @@ export const FavoriteList = ({
 
   return (
     <div>
-      <div className="favorites-title">Your Favorite Cities!</div>
       <FavoriteFilter onChangeFilter={onChangeFilter} />
+      <div className="favorites-title text-center">Your Favorite Cities!</div>
+
       <section className="favorite-list cards-grid">
         {favoritesToShow.map((favorite, i) => (
           <FavoritePreview

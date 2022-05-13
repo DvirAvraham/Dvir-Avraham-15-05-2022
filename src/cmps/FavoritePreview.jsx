@@ -1,9 +1,10 @@
 import {withRouter} from 'react-router-dom';
-import Moment from 'react-moment';
-import img from '../assets/imgs/skys.jpg';
-import sun from '../assets/imgs/sun.svg';
+import img from '../assets/imgs/fav-img.jpg';
+import sunny from '../assets/imgs/sunny.svg';
 import cloudy from '../assets/imgs/cloudy.svg';
-import snow from '../assets/imgs/snow.svg';
+import snowy from '../assets/imgs/snowy.svg';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHeart} from '@fortawesome/free-solid-svg-icons';
 
 function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
   const removeCity = (ev) => {
@@ -26,9 +27,9 @@ function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
 
   const tempImg = () => {
     const temp = favorite.Temperature.Imperial.Value;
-    if (temp <= 50) return snow;
+    if (temp <= 50) return snowy;
     else if (temp > 50 && temp < 77) return cloudy;
-    else return sun;
+    else return sunny;
   };
 
   return (
@@ -37,11 +38,15 @@ function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
       className="favorite-preview text-center favorite-img"
       onClick={() => back()}
     >
-      <div>{favorite.LocalizedName}</div>
-      <Moment format="YYYY/MM/DD">{favorite.LocalObservationDateTime}</Moment>
-      <div>{degrees()}</div>
-      <button onClick={(ev) => removeCity(ev)}>Remove</button>
+      <div className="favorite-name">{favorite.LocalizedName}</div>
+      <div className="degrees">{degrees()}</div>
       <img src={tempImg()} alt="" />
+      <div className="remove-btn">
+        <FontAwesomeIcon
+          icon={faHeart}
+          onClick={(ev) => removeCity(ev)}
+        ></FontAwesomeIcon>
+      </div>
     </div>
   );
 }

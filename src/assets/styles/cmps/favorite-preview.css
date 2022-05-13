@@ -1,7 +1,21 @@
 .favorite-preview{
     height: 200px;
+    position: relative;
 }
 
+.favorite-preview .remove-btn{
+    font-size: 1.6em;
+    color: red;
+    cursor: pointer;
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+}
+
+.favorite-name{
+    margin: 25px 0;
+    font-size: 1.8rem;
+}
 
 .favorite-img {
     background-repeat: round;
@@ -11,6 +25,6 @@
 }
 
 .favorites-title{
-    margin-bottom: 50px;
-    font-size:1.6rem
+    margin: 20px 0;
+    font-size: 1.6rem;
 }

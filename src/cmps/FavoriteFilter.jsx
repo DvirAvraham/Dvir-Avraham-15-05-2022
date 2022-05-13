@@ -5,9 +5,15 @@ export const FavoriteFilter = ({onChangeFilter}) => {
   };
 
   return (
-    <section className="contact-filter main-layout">
+    <section className="contact-filter text-center">
       <section>
-        <input onChange={handleChange} type="text" id="term" name="term" />
+        <input
+          onChange={handleChange}
+          type="text"
+          id="term"
+          name="term"
+          placeholder="Search"
+        />
       </section>
     </section>
   );

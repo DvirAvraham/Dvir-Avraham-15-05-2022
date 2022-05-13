@@ -1,8 +1,8 @@
 import Moment from 'react-moment';
 import img from '../assets/imgs/skys.jpg';
-import sun from '../assets/imgs/sun.svg';
+import sunny from '../assets/imgs/sunny.svg';
 import cloudy from '../assets/imgs/cloudy.svg';
-import snow from '../assets/imgs/snow.svg';
+import snowy from '../assets/imgs/snowy.svg';
 
 export const ForcastPreview = ({forcast, isImperial}) => {
   const degrees = () => {
@@ -22,9 +22,9 @@ export const ForcastPreview = ({forcast, isImperial}) => {
     const avg =
       (forcast.Temperature.Minimum.Value + forcast.Temperature.Maximum.Value) /
       2;
-    if (avg <= 50) return snow;
+    if (avg <= 50) return snowy;
     else if (avg > 50 && avg < 77) return cloudy;
-    else return sun;
+    else return sunny;
   };
 
   return (

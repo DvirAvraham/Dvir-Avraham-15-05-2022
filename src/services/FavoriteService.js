@@ -111,7 +111,7 @@ const CURR_WEATHER = [
             UnitType: 17,
           },
           Imperial: {
-            Value: 83,
+            Value: 0,
             Unit: 'F',
             UnitType: 18,
           },

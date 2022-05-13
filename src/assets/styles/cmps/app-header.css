@@ -1,13 +1,37 @@
 .app-header {
   font-weight: 600;
-  font-family: vogue;
   height: 120px;
+  text-transform: uppercase;
 }
 
+.logo{
+  font-family: logo;
+  position:relative;
+  z-index: 5;
+}
 
+.logo-container{
+  position: relative;
+}
 
+.logo-container img {
+  position: absolute;
+  width: 239px;
+  right: -130px;
+  top: -67px;
+}
+nav >*{
+  font-size: 1.3rem;
+  font-weight: 400;
+}
 nav > *:not(:last-child) {
   margin-inline-end: 20px;
+}
+
+.unit{
+  background-color: #ff7f5000;
+  border: 0;
+  font-weight: 900;
 }
 
 .header-container {
