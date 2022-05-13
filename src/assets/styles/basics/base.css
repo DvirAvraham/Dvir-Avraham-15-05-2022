@@ -56,17 +56,6 @@ button {
 
 }
 
-input {
-  height: 3.8rem;
-  width: 29rem;
-  border-radius: 4px;
-  font-size: 1.9rem;
-  border: 1.6px solid #0f0144;
-  background-color: #f1f1f1;
-  position: static;
-  z-index: 10;
-}
-
 .serach{
   position: relative;
 }
