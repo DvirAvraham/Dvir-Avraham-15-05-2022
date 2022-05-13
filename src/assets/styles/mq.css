@@ -11,7 +11,7 @@
         grid-gap: 30px;
     }
     .search-list .city-name{
-        width: 90vh;
+        width: 90vw;
         border: 1.6px solid #0f0144;
         border-radius: 4px;
         font-size: 1.16rem;
@@ -22,7 +22,7 @@
     }
     input {
         height: 3.8rem;
-        width: 90vh;
+        width: 90vw;
         border-radius: 4px;
         font-size: 1.9rem;
         border: 1.6px solid #0f0144;
