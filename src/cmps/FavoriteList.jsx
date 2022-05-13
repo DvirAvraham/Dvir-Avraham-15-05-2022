@@ -2,7 +2,13 @@ import {useState} from 'react';
 import {FavoritePreview} from './FavoritePreview.jsx';
 import {FavoriteFilter} from './FavoriteFilter.jsx';
 
-export const FavoriteList = ({favorites, removeCity, setCity, isImperial}) => {
+export const FavoriteList = ({
+  favorites,
+  removeCity,
+  setCity,
+  isImperial,
+  openModal,
+}) => {
   const [favoritesToShow, setFavoritesToShow] = useState(favorites);
 
   const onChangeFilter = (filterBy) => {
@@ -21,6 +27,7 @@ export const FavoriteList = ({favorites, removeCity, setCity, isImperial}) => {
       <section className="favorite-list cards-grid">
         {favoritesToShow.map((favorite, i) => (
           <FavoritePreview
+            openModal={openModal}
             isImperial={isImperial}
             setCity={setCity}
             favorite={favorite}

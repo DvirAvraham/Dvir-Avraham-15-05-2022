@@ -1,4 +1,5 @@
 import './assets/styles/global.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {AppHeader} from './cmps/AppHeader.jsx';
 import {WeatherPage} from './pages/WeatherPage.jsx';

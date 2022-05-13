@@ -5,11 +5,11 @@ import sun from '../assets/imgs/sun.svg';
 import cloudy from '../assets/imgs/cloudy.svg';
 import snow from '../assets/imgs/snow.svg';
 
-function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
+function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
   const removeCity = (ev) => {
     ev.stopPropagation();
     favorite.isFavorite = false;
-    remove(favorite);
+    openModal(favorite);
   };
 
   const back = () => {
