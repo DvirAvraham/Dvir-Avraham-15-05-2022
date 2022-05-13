@@ -2,9 +2,11 @@ import {WeatherService} from '../../services/WeatherService';
 import {FavoriteService} from '../../services/FavoriteService';
 
 export function setCurrCity(city) {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
-      let currCity = await WeatherService.getWeather(city);
+      let {currCity} = getState().WeatherModule;
+      currCity = await WeatherService.getWeather(city);
+      if (!currCity) return;
       dispatch({type: 'SET_CITY', currCity});
     } catch (err) {
       console.error('Faild setting city:', err);

@@ -381,7 +381,8 @@ const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
 async function getWeather(city) {
   let cityWeather = StorageService.loadFromStorage(CITY_KEY);
   if (cityWeather && !city) return cityWeather;
-
+  // if (!cityWeather && !city) city = await getGeoLocation();
+  // if (cityWeather?.LocalizedName === city?.LocalizedName) return;
   cityWeather = CURR_WEATHER;
 
   const details = city || TLV[0];
@@ -391,7 +392,6 @@ async function getWeather(city) {
   StorageService.saveToStorage(CITY_KEY, cityWeather);
   return cityWeather;
   try {
-    if (!cityWeather && !city) city = await getGeoLocation();
     const res = await axios.get(
       `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
     );
@@ -420,7 +420,7 @@ async function getCities(value) {
 
 async function getForcast(cityKey) {
   return FIVE[0].DailyForecasts;
-  // if (!cityKey) return FIVE[0].DailyForecasts;
+  if (!cityKey) return FIVE[0].DailyForecasts;
   try {
     const res = await axios.get(
       `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
