@@ -1,5 +1,3 @@
-import {WeatherService} from '../../services/WeatherService';
-
 const INITIAL_STATE = {
   currCity: null,
   favorites: null,

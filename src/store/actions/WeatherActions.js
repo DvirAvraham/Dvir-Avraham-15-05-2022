@@ -43,13 +43,14 @@ export function toggleImperial() {
   return async (dispatch, getState) => {
     try {
       const {isImperial} = getState().WeatherModule;
-      // const isImperialUpdate = WeatherService.setUnits(isImperial);
+      WeatherService.setUnits(!isImperial);
       dispatch({type: 'SET_IS_IMPERIAL', isImperial: !isImperial});
     } catch (err) {
       console.error('Faild switching units:', err);
     }
   };
 }
+
 export function toggleDarkMode() {
   return async (dispatch, getState) => {
     try {

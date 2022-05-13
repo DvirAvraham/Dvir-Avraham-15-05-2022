@@ -4,7 +4,7 @@ export const WeatherService = {
   getWeather,
   getCities,
   getForcast,
-  // setUnits,
+  setUnits,
 };
 
 const TLV = [
@@ -431,12 +431,9 @@ async function getForcast(cityKey) {
   }
 }
 
-// function setUnits(isImperial) {
-//   const unit =
-//     isImperial == null ? true : StorageService.loadFromStorage(UNIT_KEY);
-//   StorageService.saveToStorage(UNIT_KEY, unit);
-//   return unit;
-// }
+function setUnits(isImperial) {
+  StorageService.saveToStorage(UNIT_KEY, isImperial);
+}
 
 const LOC = {
   Version: 1,

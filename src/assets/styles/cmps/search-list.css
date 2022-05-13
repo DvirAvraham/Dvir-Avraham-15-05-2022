@@ -1,9 +1,7 @@
 .search-list{
     position: absolute;
     z-index: 5;
-    top: 41.4%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 60px;
   
 }
 
@@ -19,5 +17,5 @@
 }
 
 .search-list .city-name:hover{
-    background-color: #f1f1f1;
+    background-color: #1b131386;
 }

@@ -34,7 +34,7 @@ function _FavoritePreview({favorite, remove, history, setCity, isImperial}) {
   return (
     <div
       style={{backgroundImage: `url(${img})`}}
-      className="favorite-preview text-center"
+      className="favorite-preview text-center favorite-img"
       onClick={() => back()}
     >
       <div>{favorite.LocalizedName}</div>

@@ -46,7 +46,7 @@ export const SearchCity = () => {
   };
 
   return (
-    <section className="flex column align-center">
+    <section className="serach flex column align-center">
       <div>
         <input
           onChange={search}
@@ -56,11 +56,9 @@ export const SearchCity = () => {
         />
       </div>
       {/* {cities && <div className="try">{complete()}</div>} */}
-      <div>
-        {cities && (
-          <SearchList cities={cities} clearData={clearData}></SearchList>
-        )}
-      </div>
+      {cities && (
+        <SearchList cities={cities} clearData={clearData}></SearchList>
+      )}
     </section>
   );
 };

@@ -18,7 +18,7 @@ export const FavoriteList = ({favorites, removeCity, setCity, isImperial}) => {
     <div>
       <div className="favorites-title">Your Favorite Cities!</div>
       <FavoriteFilter onChangeFilter={onChangeFilter} />
-      <section className="favorite-list">
+      <section className="favorite-list cards-grid">
         {favoritesToShow.map((favorite, i) => (
           <FavoritePreview
             isImperial={isImperial}
