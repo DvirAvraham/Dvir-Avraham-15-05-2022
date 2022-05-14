@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {setFavorites, setCurrCity} from '../store/actions/WeatherActions';
 import {FavoriteList} from '../cmps/FavoriteList.jsx';
 import {RemoveModal} from '../cmps/RemoveModal.jsx';
+import {ToastContainer, toast} from 'react-toastify';
 
 export const FavoritePage = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,18 @@ export const FavoritePage = () => {
   const removeCity = () => {
     if (cityToRemove.Key === currCity.Key) dispatch(setCurrCity(cityToRemove));
     dispatch(setFavorites(cityToRemove));
+    toast.success(
+      `${cityToRemove.LocalizedName} removed successfully from your favorite cities!`,
+      {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
   };
 
   const closeModal = (city) => {
@@ -36,6 +49,7 @@ export const FavoritePage = () => {
 
   return (
     <div className="favorite-page main-layout">
+      <ToastContainer />
       <RemoveModal
         isShow={isShow}
         closeModal={closeModal}
