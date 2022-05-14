@@ -19,7 +19,7 @@ export const App = () => {
 
   return (
     <Router>
-      <div className={`app  ${isDark ? 'dark' : null}`}>
+      <div className={`app  ${isDark ? 'dark' : ''}`}>
         <AppHeader />
         <Switch>
           <Route path="/favorite" component={FavoritePage} />

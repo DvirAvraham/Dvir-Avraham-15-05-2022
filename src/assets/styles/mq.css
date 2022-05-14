@@ -43,11 +43,44 @@
     .favorite-page{
         min-height:100vh;
     }
+    nav{
+        display: flex;
+        gap: 20px;
+        position: fixed;
+        right: -100vw;
+        top: 120px;
+        z-index: 10;
+        background-color: #988484;
+        width: 97vw;
+        height: 27vh;
+        align-items: center;
+        transition: right 0.5s;
+    }
+    .nav-bg{
+        inset: 0;
+        background-color: rgba(16, 10, 10, 0.73);
+        height: 100vh;
+        position: fixed;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(4px);
+        z-index: 15;
+        display:none;
+      }
     
 }
 
 
 @media (min-width: 800px) {
+    .menu, .nav-bg{
+        display: none !important;
+    }
+    nav{
+        display: flex;
+        position: unset;
+    }
+    nav > *:not(:last-child) {
+        margin-inline-end: 20px;
+      }
     .favorite-page{
         min-height:100vh;
     }

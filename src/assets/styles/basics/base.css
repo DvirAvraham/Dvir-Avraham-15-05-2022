@@ -45,9 +45,10 @@ a:hover {
   text-decoration: underline;
 }
 a.my-active {
-  background-color: #61aadf8a;
-  padding: 1px 6px;
+  color: orange !important;
 }
+
+
 
 button {
   font-family: inherit;
