@@ -43,7 +43,7 @@ export const FavoriteList = ({
     <div>
       <FavoriteFilter onChangeFilter={onChangeFilter} />
       <div className="favorites-title text-center">Your Favorite Cities!</div>
-      <div onClick={sortByTemp} className="sort ">
+      <div onClick={sortByTemp} className="sort" title="Toggle cities by heat.">
         <FontAwesomeIcon icon={faFire}></FontAwesomeIcon>
         Hotest places
       </div>
