@@ -48,7 +48,6 @@ const CURR_WEATHER = {
     'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
   Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
 };
-
 const AUTO = [
   {
     Version: 1,
@@ -201,7 +200,6 @@ const AUTO = [
     },
   },
 ];
-
 const FIVE = [
   {
     Headline: {
@@ -374,9 +372,7 @@ const FIVE = [
 const CITY_KEY = 'city_db';
 const UNIT_KEY = 'unit_db';
 
-const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
-// const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
-// const API_KEY = 'D6jKdaMbziIW51Ahx96LesYfkvyLCM8k';
+const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
 
 async function getWeather(city) {
   let cityWeather = StorageService.loadFromStorage(CITY_KEY);

@@ -12,19 +12,16 @@ function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
     favorite.isFavorite = false;
     openModal(favorite);
   };
-
   const back = () => {
     setCity(favorite);
     history.push('/');
   };
-
   const degrees = () => {
     const degree = isImperial ? 'Imperial' : 'Metric';
     return `${favorite.Temperature[degree].Value.toFixed()} °${
       favorite.Temperature[degree].Unit
     }`;
   };
-
   const tempImg = () => {
     const temp = favorite.Temperature.Imperial.Value;
     if (temp <= 50) return snowy;

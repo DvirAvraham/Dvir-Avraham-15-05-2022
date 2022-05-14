@@ -28,7 +28,6 @@ export const WeatherPage = () => {
       console.error('Failed setting weather', err);
     }
   };
-
   const toggleFavorite = () => {
     !currCity.isFavorite
       ? (currCity.isFavorite = true)

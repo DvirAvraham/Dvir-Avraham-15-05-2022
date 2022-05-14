@@ -17,7 +17,6 @@ export const ForcastPreview = ({forcast, isImperial}) => {
         ];
     return `${degrees[0]} - ${degrees[1]} ${degrees[2]}`;
   };
-
   const tempImg = () => {
     const avg =
       (forcast.Temperature.Minimum.Value + forcast.Temperature.Maximum.Value) /

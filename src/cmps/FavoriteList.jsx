@@ -22,12 +22,12 @@ export const FavoriteList = ({
       )
     );
   };
-
   const sortByTemp = () => {
     console.log(isSorted);
     if (isSorted) {
       setIsSorted(false);
-      return setFavoritesToShow(favorites);
+      setFavoritesToShow(favorites);
+      return;
     }
     setIsSorted(true);
     setFavoritesToShow(

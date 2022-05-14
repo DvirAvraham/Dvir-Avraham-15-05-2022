@@ -36,14 +36,14 @@ export const SearchCity = () => {
     setTxt('');
     setCities(null);
   };
-  const complete = () => {
-    let newStr = cities[0].LocalizedName.split('');
-    newStr.splice(0, txt.length);
-    for (let i = txt.length - 1; i >= 0; i--) {
-      newStr.unshift(txt[i]);
-    }
-    return newStr.join('');
-  };
+  // const complete = () => {
+  //   let newStr = cities[0].LocalizedName.split('');
+  //   newStr.splice(0, txt.length);
+  //   for (let i = txt.length - 1; i >= 0; i--) {
+  //     newStr.unshift(txt[i]);
+  //   }
+  //   return newStr.join('');
+  // };
 
   return (
     <section className="serach flex column align-center">

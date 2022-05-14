@@ -24,6 +24,7 @@ export function loadFavorites() {
     }
   };
 }
+
 export function setFavorites(city) {
   return async (dispatch, getState) => {
     try {

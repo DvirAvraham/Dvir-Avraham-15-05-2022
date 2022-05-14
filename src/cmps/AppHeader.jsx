@@ -53,7 +53,6 @@ function _AppHeader({history}) {
               <div className="ball" />
             </label>
           </div>
-
           <NavLink
             activeClassName="my-active"
             exact

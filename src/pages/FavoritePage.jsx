@@ -37,12 +37,10 @@ export const FavoritePage = () => {
     else setCityToRemove(null);
     setIsShow(false);
   };
-
   const openModal = (city) => {
     setCityToRemove(city);
     setIsShow(true);
   };
-
   const setCity = (city) => {
     dispatch(setCurrCity(city));
   };
