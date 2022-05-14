@@ -25,6 +25,8 @@
 }
 
 .favorites-title{
-    margin: 20px 0;
-    font-size: 1.6rem;
+    font-size: 3rem;
+    font-family: revert;
+    font-weight: 600;
+    margin: 20px 0 3.5rem 0;
 }

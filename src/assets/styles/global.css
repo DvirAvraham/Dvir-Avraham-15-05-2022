@@ -1,21 +1,14 @@
 
- /* Basics */
  @import './mq';
  @import "basics/typography.css";
  @import 'basics/base.css';
-@import 'basics/base.css';
-@import 'basics/helpers';
- /* @import "basics/modals"; */
- /* @import "basics/animations"; */
+ @import 'basics/base.css';
+ @import 'basics/helpers';
+  
+ @import 'pages/favorite-page';
 
- /* Pages */
- /* @import 'cmps/contact-details'; */
- /* @import 'cmps/home-page'; */
-
- /* Components */
-@import 'cmps/app-header';
+ @import 'cmps/app-header';
  @import 'cmps/search-list';
  @import 'cmps/forcast-list';
  @import 'cmps/city-preview';
- @import 'cmps/favorite-preview';
 

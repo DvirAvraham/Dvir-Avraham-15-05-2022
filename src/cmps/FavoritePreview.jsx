@@ -36,7 +36,7 @@ function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
     <div
       style={{backgroundImage: `url(${img})`}}
       className="favorite-preview text-center favorite-img"
-      onClick={() => back()}
+      onClick={back}
     >
       <div className="favorite-name">{favorite.LocalizedName}</div>
       <div className="degrees">{degrees()}</div>

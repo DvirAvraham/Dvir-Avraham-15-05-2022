@@ -8,6 +8,7 @@
   font-family: logo;
   position:relative;
   z-index: 5;
+  cursor: pointer;
 }
 
 .logo-container{
@@ -92,6 +93,7 @@
   opacity: 0;
   position: absolute;
   width: auto;
+  cursor: pointer;
 }
 
 .label {
@@ -105,6 +107,7 @@
   padding: 5px;
   position: relative;
   transform: scale(1.5);
+  cursor: pointer;
 }
 
 .ball {
@@ -116,6 +119,7 @@
   left: 2px;
   border-radius: 50%;
   transition: transform 0.2s linear;
+  cursor: pointer;
 }
 
 .checkbox:checked + .label .ball{

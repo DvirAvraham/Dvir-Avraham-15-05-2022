@@ -11,13 +11,12 @@ import {
   faTemperatureHalf,
 } from '@fortawesome/free-solid-svg-icons';
 
-function _AppHeader() {
+function _AppHeader({history}) {
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(null);
 
   const {isImperial} = useSelector((state) => state.WeatherModule);
-  const {isDark} = useSelector((state) => state.WeatherModule);
 
   const toggleIsImperial = () => {
     dispatch(toggleImperial());
@@ -25,11 +24,14 @@ function _AppHeader() {
   const toggleIsDark = () => {
     dispatch(toggleDarkMode());
   };
+  const back = () => {
+    history.push('/');
+  };
 
   return (
     <section className="app-header">
       <div className=" app-header header-container main-layout flex space-between align-center">
-        <div className="logo-container">
+        <div onClick={back} className="logo-container">
           <h1 className="logo">Weather</h1>
           <img src={sunny} alt="" />
         </div>
@@ -45,7 +47,7 @@ function _AppHeader() {
               id="checkbox"
               onClick={toggleIsDark}
             />
-            <label for="checkbox" className="label">
+            <label htmlFor="checkbox" className="label">
               <FontAwesomeIcon icon={faMoon} className="fa-moon" />
               <FontAwesomeIcon icon={faSun} className="fa-sun" />
               <div className="ball" />
