@@ -16,6 +16,9 @@ export const CityPreview = ({city, toggleFavorite, isImperial}) => {
         <button
           onClick={toggleFavorite}
           className={`toggle-fav ${city?.isFavorite ? 'fav' : ''}`}
+          title={`${
+            city?.isFavorite ? 'Remove from favorites.' : 'Add to favorites.'
+          }`}
         >
           <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
         </button>

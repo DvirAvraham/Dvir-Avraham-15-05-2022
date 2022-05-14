@@ -1,6 +1,7 @@
 .favorite-preview{
     height: 200px;
     position: relative;
+    cursor: pointer;
 }
 
 .favorite-preview .remove-btn{

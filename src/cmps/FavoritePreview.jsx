@@ -37,11 +37,12 @@ function _FavoritePreview({favorite, history, setCity, isImperial, openModal}) {
       style={{backgroundImage: `url(${img})`}}
       className="favorite-preview text-center favorite-img"
       onClick={back}
+      title="Click to set as home page city."
     >
       <div className="favorite-name">{favorite.LocalizedName}</div>
       <div className="degrees">{degrees()}</div>
       <img src={tempImg()} alt="" />
-      <div className="remove-btn">
+      <div className="remove-btn" title="Remove.">
         <FontAwesomeIcon
           icon={faHeart}
           onClick={(ev) => removeCity(ev)}
