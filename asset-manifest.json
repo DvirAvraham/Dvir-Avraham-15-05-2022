@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Dvir-Avraham-15-05-2022/static/css/main.ded535a8.css",
-    "main.js": "/Dvir-Avraham-15-05-2022/static/js/main.fe61ed64.js",
+    "main.js": "/Dvir-Avraham-15-05-2022/static/js/main.77ae6ff5.js",
     "static/js/787.13d76ca7.chunk.js": "/Dvir-Avraham-15-05-2022/static/js/787.13d76ca7.chunk.js",
     "static/media/logo-font.ttf": "/Dvir-Avraham-15-05-2022/static/media/logo-font.f5112b5d7383cfebdc21.ttf",
     "static/media/fav-img.jpg": "/Dvir-Avraham-15-05-2022/static/media/fav-img.5c9fb9d98cd050f627b5.jpg",
@@ -10,11 +10,11 @@
     "static/media/sunny.svg": "/Dvir-Avraham-15-05-2022/static/media/sunny.212e04206236caeb33f88e1c9dc942ad.svg",
     "index.html": "/Dvir-Avraham-15-05-2022/index.html",
     "main.ded535a8.css.map": "/Dvir-Avraham-15-05-2022/static/css/main.ded535a8.css.map",
-    "main.fe61ed64.js.map": "/Dvir-Avraham-15-05-2022/static/js/main.fe61ed64.js.map",
+    "main.77ae6ff5.js.map": "/Dvir-Avraham-15-05-2022/static/js/main.77ae6ff5.js.map",
     "787.13d76ca7.chunk.js.map": "/Dvir-Avraham-15-05-2022/static/js/787.13d76ca7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ded535a8.css",
-    "static/js/main.fe61ed64.js"
+    "static/js/main.77ae6ff5.js"
   ]
 }
