@@ -24,14 +24,14 @@ const CURR_WEATHER = [
       {
         LocalObservationDateTime: '2022-05-09T16:13:00+03:00',
         EpochTime: 1652101980,
-        WeatherText: 'Sunny',
+        WeatherText: 'Snowy',
         WeatherIcon: 1,
         HasPrecipitation: false,
         PrecipitationType: null,
         IsDayTime: true,
         Temperature: {
           Metric: {
-            Value: 28.2,
+            Value: 0,
             Unit: 'C',
             UnitType: 17,
           },
@@ -46,6 +46,7 @@ const CURR_WEATHER = [
         Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
         LocalizedName: 'Paris',
         Key: 'dd',
+        id: 'fjsjf5fj',
         isFavorite: true,
       },
       {
@@ -73,6 +74,7 @@ const CURR_WEATHER = [
         Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
         LocalizedName: 'London',
         Key: 'bb',
+        id: 'fispdj78',
         isFavorite: true,
       },
     ],
@@ -90,8 +92,8 @@ function loadFavorites() {
   return favorites;
 }
 
-function removeCity(favorites, cityKey) {
-  const idx = favorites.findIndex((city) => city.Key === cityKey);
+function removeCity(favorites, cityId) {
+  const idx = favorites.findIndex((city) => city.id === cityId);
   favorites.splice(idx, 1);
   StorageService.saveToStorage(FAVORITE_KEY, favorites);
   return favorites;

@@ -19,6 +19,7 @@ body {
 .app{
   background-color: #d1e0ea;
   transition: background-color 0.5s;
+  min-height: 100vh;
 }
 
 

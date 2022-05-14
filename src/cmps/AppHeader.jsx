@@ -31,8 +31,10 @@ function _AppHeader({history}) {
   return (
     <section className="app-header">
       <div className=" app-header header-container main-layout flex space-between align-center">
-        <div onClick={back} className="logo-container">
-          <h1 className="logo">Weather</h1>
+        <div className="logo-container">
+          <h1 onClick={back} className="logo">
+            Weather
+          </h1>
           <img src={sunny} alt="" />
         </div>
         <nav className={`${isOpen ? 'open' : ''}`}>

@@ -4,7 +4,6 @@ export const WeatherService = {
   getWeather,
   getCities,
   getForcast,
-  setUnits,
 };
 
 const TLV = [
@@ -368,69 +367,6 @@ const FIVE = [
     ],
   },
 ];
-
-const CITY_KEY = 'city_db';
-const UNIT_KEY = 'unit_db';
-
-const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
-
-async function getWeather(city) {
-  let cityWeather = StorageService.loadFromStorage(CITY_KEY);
-  if (cityWeather && !city) return cityWeather;
-  // if (!cityWeather && !city) city = await getGeoLocation();
-  // if (cityWeather?.LocalizedName === city?.LocalizedName) return;
-  cityWeather = CURR_WEATHER;
-
-  const details = city || TLV[0];
-  cityWeather.LocalizedName = details.LocalizedName;
-  cityWeather.Key = details.Key;
-  cityWeather.isFavorite = details.isFavorite || false;
-  StorageService.saveToStorage(CITY_KEY, cityWeather);
-  return cityWeather;
-  try {
-    const res = await axios.get(
-      `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
-    );
-    cityWeather = res.data[0];
-    cityWeather.LocalizedName = city.LocalizedName;
-    cityWeather.Key = city.Key;
-    cityWeather.isFavorite = city.isFavorite || false;
-    StorageService.saveToStorage(CITY_KEY, cityWeather);
-    return cityWeather;
-  } catch (err) {
-    console.error(`Failed getting ${city.Key} weather`, err);
-  }
-}
-
-async function getCities(value) {
-  return AUTO;
-  try {
-    const res = await axios.get(
-      `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${value}`
-    );
-    return res.data;
-  } catch (err) {
-    console.error('Failed finding cities', err);
-  }
-}
-
-async function getForcast(cityKey) {
-  return FIVE[0].DailyForecasts;
-  if (!cityKey) return FIVE[0].DailyForecasts;
-  try {
-    const res = await axios.get(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
-    );
-    return res.data.DailyForecasts;
-  } catch (err) {
-    console.error('Failed getting forcast', err);
-  }
-}
-
-function setUnits(isImperial) {
-  StorageService.saveToStorage(UNIT_KEY, isImperial);
-}
-
 const LOC = {
   Version: 1,
   Key: '215846',
@@ -494,6 +430,77 @@ const LOC = {
   ],
 };
 
+const CITY_KEY = 'city_db';
+const FORCAST_KEY = 'forcast_db';
+const FAVORITE_KEY = 'favorite_db';
+
+const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
+
+async function getWeather(city) {
+  let cityWeather = StorageService.loadFromStorage(CITY_KEY);
+  const favorites = StorageService.loadFromStorage(FAVORITE_KEY);
+  if (cityWeather && !city) return cityWeather;
+  // if (!cityWeather && !city) city = await getGeoLocation();
+  // if (cityWeather?.LocalizedName === city?.LocalizedName) return;
+  if (favorites) {
+    const favorite = favorites.find((favorite) => favorite.Key === city.Key);
+    if (city?.WeatherIcon)
+      // "WeatherIcon" helps to figure out if its a remove from favorites update vs a 'search' city
+      return city;
+    else if (favorite) return favorite;
+  }
+  cityWeather = CURR_WEATHER;
+
+  const details = city || TLV[0];
+  cityWeather.LocalizedName = details.LocalizedName;
+  cityWeather.Key = details.Key;
+  cityWeather.id = city?.id || _makeId();
+  cityWeather.isFavorite = details.isFavorite || false;
+  console.log(cityWeather.id);
+  StorageService.saveToStorage(CITY_KEY, cityWeather);
+  return cityWeather;
+  try {
+    const res = await axios.get(
+      `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
+    );
+    cityWeather = res.data[0];
+    cityWeather.LocalizedName = city.LocalizedName;
+    cityWeather.Key = city.Key;
+    cityWeather.isFavorite = city.isFavorite || false;
+    StorageService.saveToStorage(CITY_KEY, cityWeather);
+    return cityWeather;
+  } catch (err) {
+    console.error(`Failed getting ${city.Key} weather`, err);
+  }
+}
+
+async function getCities(value) {
+  return AUTO;
+  try {
+    const res = await axios.get(
+      `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${value}`
+    );
+    return res.data;
+  } catch (err) {
+    console.error('Failed finding cities', err);
+  }
+}
+
+async function getForcast(cityKey) {
+  return FIVE[0].DailyForecasts;
+  const forcast = StorageService.loadFromStorage(FORCAST_KEY);
+  if (!cityKey && forcast) return forcast;
+  try {
+    const res = await axios.get(
+      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
+    );
+    StorageService.saveToStorage(FORCAST_KEY, res.data.DailyForecasts);
+    return res.data.DailyForecasts;
+  } catch (err) {
+    console.error('Failed getting forcast', err);
+  }
+}
+
 async function getGeoLocation() {
   return LOC;
   const position = await getPosition();
@@ -511,4 +518,14 @@ function getPosition() {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
+}
+
+function _makeId(length = 8) {
+  var txt = '';
+  var possible =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (var i = 0; i < length; i++) {
+    txt += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return txt;
 }

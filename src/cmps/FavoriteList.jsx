@@ -23,7 +23,6 @@ export const FavoriteList = ({
     );
   };
   const sortByTemp = () => {
-    console.log(isSorted);
     if (isSorted) {
       setIsSorted(false);
       setFavoritesToShow(favorites);

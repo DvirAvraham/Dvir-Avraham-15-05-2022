@@ -33,7 +33,7 @@ export function setFavorites(city) {
       if (city.isFavorite) {
         favorites = FavoriteService.addCity(favorites, city);
       } else {
-        favorites = FavoriteService.removeCity(favorites, city.Key);
+        favorites = FavoriteService.removeCity(favorites, city.id);
       }
       dispatch({type: 'SET_FAVORITES', favorites});
     } catch (err) {
@@ -46,7 +46,6 @@ export function toggleImperial() {
   return async (dispatch, getState) => {
     try {
       const {isImperial} = getState().WeatherModule;
-      WeatherService.setUnits(!isImperial);
       dispatch({type: 'SET_IS_IMPERIAL', isImperial: !isImperial});
     } catch (err) {
       console.error('Faild switching units:', err);
@@ -58,7 +57,6 @@ export function toggleDarkMode() {
   return async (dispatch, getState) => {
     try {
       const {isDark} = getState().WeatherModule;
-      // const isImperialUpdate = WeatherService.setUnits(isImperial);
       dispatch({type: 'SET_IS_DARK', isDark: !isDark});
     } catch (err) {
       console.error('Faild switching modes:', err);

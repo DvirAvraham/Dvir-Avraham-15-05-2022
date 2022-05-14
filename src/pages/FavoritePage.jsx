@@ -16,7 +16,7 @@ export const FavoritePage = () => {
   const {isImperial} = useSelector((state) => state.WeatherModule);
 
   const removeCity = () => {
-    if (cityToRemove.Key === currCity.Key) dispatch(setCurrCity(cityToRemove));
+    if (cityToRemove.id === currCity.id) dispatch(setCurrCity(cityToRemove));
     dispatch(setFavorites(cityToRemove));
     toast.success(
       `${cityToRemove.LocalizedName} removed successfully from your favorite cities!`,
