@@ -119,7 +119,7 @@ const CURR_WEATHER = [
         MobileLink:
           'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
         Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-        LocalizedName: 'Tel Aviveeeeeeeeeeeeeeeeeeeeeee',
+        LocalizedName: 'Paris',
         Key: 'dd',
         isFavorite: true,
       },
@@ -146,7 +146,7 @@ const CURR_WEATHER = [
         MobileLink:
           'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
         Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-        LocalizedName: 'Tel Avivaaaaaaaaaaaaaaaaaaa',
+        LocalizedName: 'London',
         Key: 'bb',
         isFavorite: true,
       },
