@@ -20,10 +20,7 @@
   right: -130px;
   top: -67px;
 }
-nav >*{
-  font-size: 1.3rem;
-  font-weight: 400;
-}
+
 
 
 .unit{
@@ -81,7 +78,7 @@ nav >*{
 }
 
 .open{
-  right: 0;
+  right: 20px;
 }
 
 .apply{

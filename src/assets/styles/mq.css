@@ -43,40 +43,64 @@
     .favorite-page{
         min-height:100vh;
     }
-    nav{
+    nav {
         display: flex;
+        flex-direction: column-reverse;
         gap: 20px;
         position: fixed;
         right: -100vw;
         top: 120px;
         z-index: 10;
-        background-color: #988484;
-        width: 97vw;
-        height: 27vh;
+        background-color: #68afe2;
+        width: 42vw;
+        height: 47.5vh;
         align-items: center;
         transition: right 0.5s;
+        gap: 46px;
+        box-shadow: -5px 5px 15px 5px #00000069;
     }
     .nav-bg{
         inset: 0;
-        background-color: rgba(16, 10, 10, 0.73);
+        background-color: rgb(255 255 255 / 27%);
         height: 100vh;
         position: fixed;
         -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(4px);
-        z-index: 15;
-        display:none;
+        backdrop-filter: blur(0.5px);
+        display: none;
+        cursor: pointer;
+    }
+    .unit{
+        margin-bottom: 36px;
+    }
+    nav >*{
+        font-size: 2rem !important;
+        font-weight: 400;
+      }
+      .menu {
+        position: fixed ;
+        right: 0;
+        }
+    
+    }
+    
+    
+    @media (min-width: 800px) {
+        .toggle-dark{
+            position: absolute;
+            top: 54px;
+            right: -9px;
+        }
+    nav >*{
+        font-size: 1.3rem !important;
+        font-weight: 400;
       }
     
-}
-
-
-@media (min-width: 800px) {
     .menu, .nav-bg{
         display: none !important;
     }
     nav{
         display: flex;
-        position: unset;
+        position: relative;
     }
     nav > *:not(:last-child) {
         margin-inline-end: 20px;

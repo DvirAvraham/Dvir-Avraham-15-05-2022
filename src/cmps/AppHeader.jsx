@@ -35,7 +35,7 @@ function _AppHeader() {
           </button>
           {/* <button onClick={toggleIsDark}>{isDark ? 'Light' : 'Dark'}</button> */}
 
-          <div>
+          <div className="toggle-dark">
             <input
               type="checkbox"
               className="checkbox"
