@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import {FavoritePreview} from './FavoritePreview.jsx';
 import {FavoriteFilter} from './FavoriteFilter.jsx';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFire} from '@fortawesome/free-solid-svg-icons';
 
 export const FavoriteList = ({
   favorites,
@@ -10,6 +12,7 @@ export const FavoriteList = ({
   openModal,
 }) => {
   const [favoritesToShow, setFavoritesToShow] = useState(favorites);
+  const [isSorted, setIsSorted] = useState(null);
 
   const onChangeFilter = (filterBy) => {
     filterBy = filterBy.toLowerCase();
@@ -20,10 +23,30 @@ export const FavoriteList = ({
     );
   };
 
+  const sortByTemp = () => {
+    console.log(isSorted);
+    if (isSorted) {
+      setIsSorted(false);
+      return setFavoritesToShow(favorites);
+    }
+    setIsSorted(true);
+    setFavoritesToShow(
+      favorites
+        .slice()
+        .sort(
+          (a, b) => b.Temperature.Imperial.Value - a.Temperature.Imperial.Value
+        )
+    );
+  };
+
   return (
     <div>
       <FavoriteFilter onChangeFilter={onChangeFilter} />
       <div className="favorites-title text-center">Your Favorite Cities!</div>
+      <div onClick={sortByTemp} className="sort ">
+        <FontAwesomeIcon icon={faFire}></FontAwesomeIcon>
+        Hotest places
+      </div>
 
       <section className="favorite-list cards-grid">
         {favoritesToShow.map((favorite, i) => (

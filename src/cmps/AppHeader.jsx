@@ -54,10 +54,19 @@ function _AppHeader({history}) {
             </label>
           </div>
 
-          <NavLink activeClassName="my-active" exact to="/">
+          <NavLink
+            activeClassName="my-active"
+            exact
+            to="/"
+            onClick={() => setIsOpen(null)}
+          >
             Home
           </NavLink>
-          <NavLink activeClassName="my-active" to="/favorite">
+          <NavLink
+            activeClassName="my-active"
+            to="/favorite"
+            onClick={() => setIsOpen(null)}
+          >
             Favorites
           </NavLink>
         </nav>
