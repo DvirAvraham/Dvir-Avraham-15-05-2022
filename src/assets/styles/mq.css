@@ -148,6 +148,9 @@
     grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
     grid-gap: 30px;
 }
+.unit .desc{
+    font-size:1.3rem
+}
 }
 @media (min-width: 1395px) {
     .main-layout {

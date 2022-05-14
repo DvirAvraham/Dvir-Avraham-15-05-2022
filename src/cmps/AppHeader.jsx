@@ -5,7 +5,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import {toggleImperial, toggleDarkMode} from '../store/actions/WeatherActions';
 import sunny from '../assets/imgs/sunny.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
+import {
+  faMoon,
+  faSun,
+  faTemperatureHalf,
+} from '@fortawesome/free-solid-svg-icons';
 
 function _AppHeader() {
   const dispatch = useDispatch();
@@ -31,10 +35,9 @@ function _AppHeader() {
         </div>
         <nav className={`${isOpen ? 'open' : ''}`}>
           <button onClick={toggleIsImperial} className="unit">
-            °{isImperial ? 'C' : 'F'}
+            <FontAwesomeIcon icon={faTemperatureHalf} className="fa-temp" />
+            <span className="desc"> °{isImperial ? 'C' : 'F'}</span>
           </button>
-          {/* <button onClick={toggleIsDark}>{isDark ? 'Light' : 'Dark'}</button> */}
-
           <div className="toggle-dark">
             <input
               type="checkbox"
