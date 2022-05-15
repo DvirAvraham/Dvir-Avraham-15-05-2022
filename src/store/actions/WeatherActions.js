@@ -29,7 +29,6 @@ export function setFavorites(city) {
   return async (dispatch, getState) => {
     try {
       let {favorites} = getState().WeatherModule;
-      const {currCity} = getState().WeatherModule;
       if (city.isFavorite) {
         favorites = FavoriteService.addCity(favorites, city);
       } else {

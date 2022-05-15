@@ -49,7 +49,7 @@ export const WeatherPage = () => {
   };
 
   return !currCity ? (
-    <div>Loading..</div>
+    <div className="msg main-layout">Loading..</div>
   ) : (
     <section className="weather-page main-layout">
       <ToastContainer />
@@ -61,7 +61,7 @@ export const WeatherPage = () => {
           toggleFavorite={toggleFavorite}
         ></CityPreview>
       ) : (
-        <div>Loading..</div>
+        <div className="msg main-layout">Loading..</div>
       )}
       {currCityForcast ? (
         <ForcastList
@@ -69,7 +69,7 @@ export const WeatherPage = () => {
           isImperial={isImperial}
         ></ForcastList>
       ) : (
-        <div>Loading..</div>
+        <div className="msg main-layout">Loading..</div>
       )}
     </section>
   );

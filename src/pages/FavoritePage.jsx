@@ -53,7 +53,7 @@ export const FavoritePage = () => {
         closeModal={closeModal}
         cityToRemove={cityToRemove}
       ></RemoveModal>
-      {favorites && (
+      {favorites && favorites.length ? (
         <FavoriteList
           openModal={openModal}
           isImperial={isImperial}
@@ -61,6 +61,8 @@ export const FavoritePage = () => {
           favorites={favorites}
           removeCity={removeCity}
         ></FavoriteList>
+      ) : (
+        <div className="msg main-layout">No favorite cities yet..</div>
       )}
     </div>
   );
