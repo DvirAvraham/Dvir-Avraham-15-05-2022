@@ -10,7 +10,7 @@ export const WeatherService = {
 const CITY_KEY = 'city_db';
 const FAVORITE_KEY = 'favorite_db';
 
-const API_KEY = 'RI3GPLBt4JfKAVscpkoI3ApnVQgyI2Z3';
+const API_KEY = 'hgXD1TI7qZ2VvGsgx35QIQmtTbSmzAFu';
 
 async function getWeather(city) {
   let cityWeather = StorageService.loadFromStorage(CITY_KEY);
