@@ -27,7 +27,7 @@ async function getWeather(city) {
   }
   try {
     const res = await axios.get(
-      `http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
+      `https://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}`
     );
     cityWeather = res.data[0];
     cityWeather.LocalizedName = city.LocalizedName;
@@ -44,7 +44,7 @@ async function getWeather(city) {
 async function getCities(value) {
   try {
     const res = await axios.get(
-      `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${value}`
+      `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${value}`
     );
     return res.data;
   } catch (err) {
@@ -55,7 +55,7 @@ async function getCities(value) {
 async function getForcast(cityKey) {
   try {
     const res = await axios.get(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
+      `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`
     );
     return res.data.DailyForecasts;
   } catch (err) {
@@ -67,7 +67,7 @@ async function _getGeoLocation() {
   try {
     const position = await _getPosition();
     const res = await axios.get(
-      `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${position.coords.latitude}%2C${position.coords.longitude}`
+      `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${position.coords.latitude}%2C${position.coords.longitude}`
     );
     return res.data;
   } catch (err) {
