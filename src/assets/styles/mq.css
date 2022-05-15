@@ -17,9 +17,10 @@
         border: 0;
         font-size: 1.16rem;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.681);
+        background-color:rgb(128 175 207 / 87%);
         padding: 3px;
-        border-bottom: 1px solid #00000033;      
+        border-bottom: 1px solid #00000033;  
+        text-shadow: 0px 0px 1px #000000;    
     }
     
     .serach-container{
@@ -120,9 +121,10 @@
         border: 0;
         font-size: 1.16rem;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.681);
         padding: 3px;
         border-bottom: 1px solid #00000033;
+        background-color:rgb(128 175 207 / 87%);
+        text-shadow: 0px 0px 1px #000000;
     }
 
     .serach-container{
