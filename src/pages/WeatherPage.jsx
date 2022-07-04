@@ -19,6 +19,10 @@ export const WeatherPage = () => {
     setForecast();
   }, [currCity]);
 
+  useEffect(() => {
+    console.log('unmount');
+  }, []);
+
   const setForecast = async () => {
     try {
       if (!currCity) return;
