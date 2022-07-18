@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Dvir-Avraham-15-05-2022/static/css/main.7a07e929.css",
-    "main.js": "/Dvir-Avraham-15-05-2022/static/js/main.8a047e4b.js",
-    "static/js/787.13d76ca7.chunk.js": "/Dvir-Avraham-15-05-2022/static/js/787.13d76ca7.chunk.js",
-    "static/media/logo-font.ttf": "/Dvir-Avraham-15-05-2022/static/media/logo-font.f5112b5d7383cfebdc21.ttf",
-    "static/media/fav-img.jpg": "/Dvir-Avraham-15-05-2022/static/media/fav-img.5c9fb9d98cd050f627b5.jpg",
-    "static/media/snowy.svg": "/Dvir-Avraham-15-05-2022/static/media/snowy.abf211998f21d5289adb043ca67087ad.svg",
-    "static/media/cloudy.svg": "/Dvir-Avraham-15-05-2022/static/media/cloudy.38f6349b79e1b2116001ab225ee149aa.svg",
-    "static/media/sunny.svg": "/Dvir-Avraham-15-05-2022/static/media/sunny.212e04206236caeb33f88e1c9dc942ad.svg",
-    "index.html": "/Dvir-Avraham-15-05-2022/index.html",
-    "main.7a07e929.css.map": "/Dvir-Avraham-15-05-2022/static/css/main.7a07e929.css.map",
-    "main.8a047e4b.js.map": "/Dvir-Avraham-15-05-2022/static/js/main.8a047e4b.js.map",
-    "787.13d76ca7.chunk.js.map": "/Dvir-Avraham-15-05-2022/static/js/787.13d76ca7.chunk.js.map"
+    "main.css": "/Weather/static/css/main.a6c8dd17.css",
+    "main.js": "/Weather/static/js/main.9356809f.js",
+    "static/js/787.13d76ca7.chunk.js": "/Weather/static/js/787.13d76ca7.chunk.js",
+    "static/media/logo-font.ttf": "/Weather/static/media/logo-font.f5112b5d7383cfebdc21.ttf",
+    "static/media/fav-img.jpg": "/Weather/static/media/fav-img.5c9fb9d98cd050f627b5.jpg",
+    "static/media/snowy.svg": "/Weather/static/media/snowy.abf211998f21d5289adb043ca67087ad.svg",
+    "static/media/cloudy.svg": "/Weather/static/media/cloudy.38f6349b79e1b2116001ab225ee149aa.svg",
+    "static/media/sunny.svg": "/Weather/static/media/sunny.212e04206236caeb33f88e1c9dc942ad.svg",
+    "index.html": "/Weather/index.html",
+    "main.a6c8dd17.css.map": "/Weather/static/css/main.a6c8dd17.css.map",
+    "main.9356809f.js.map": "/Weather/static/js/main.9356809f.js.map",
+    "787.13d76ca7.chunk.js.map": "/Weather/static/js/787.13d76ca7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a07e929.css",
-    "static/js/main.8a047e4b.js"
+    "static/css/main.a6c8dd17.css",
+    "static/js/main.9356809f.js"
   ]
 }
